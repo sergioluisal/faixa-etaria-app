@@ -1,0 +1,59 @@
+<body>
+  <h1>Distribuição por Faixa Etária — Mestrado & Doutorado</h1>
+
+  <!-- === FORM 1 === -->
+  <form method="post" class="controls">
+    <input type="hidden" name="form_id" value="grafico1">
+    <label>Curso:
+      <select name="curso1">
+        {% for c in cursos %}
+          <option value="{{ c }}" {% if c == selected_curso1 %}selected{% endif %}>{{ c }}</option>
+        {% endfor %}
+      </select>
+    </label>
+
+    <label>Faixa Etária:
+      <select name="faixa1">
+        {% for f in faixas %}
+          <option value="{{ f }}" {% if f == selected_faixa1 %}selected{% endif %}>{{ f }}</option>
+        {% endfor %}
+      </select>
+    </label>
+
+    <button type="submit">Aplicar (Gráfico 1)</button>
+  </form>
+
+  <div id="plot1">
+    {{ plot_div1 | safe }}
+  </div>
+
+  <!-- === FORM 2 === -->
+  <h2>Faixa Etária x Ano de Início</h2>
+
+  <form method="post" class="controls">
+    <input type="hidden" name="form_id" value="grafico2">
+    <label>Curso:
+      <select name="curso2">
+        {% for c in cursos %}
+          <option value="{{ c }}" {% if c == selected_curso2 %}selected{% endif %}>{{ c }}</option>
+        {% endfor %}
+      </select>
+    </label>
+
+    <label>Ano de Início:
+      <select name="ano2">
+        {% for a in anos %}
+          <option value="{{ a }}" {% if a == selected_ano2 %}selected{% endif %}>{{ a }}</option>
+        {% endfor %}
+      </select>
+    </label>
+
+    <button type="submit">Aplicar (Gráfico 2)</button>
+  </form>
+
+  <div id="plot2">
+    {{ plot_div2 | safe }}
+  </div>
+</body>
+
+
